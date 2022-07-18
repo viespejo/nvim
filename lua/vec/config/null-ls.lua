@@ -17,7 +17,7 @@ null_ls.setup({
 		diagnostics.golangci_lint,
 		formatting.goimports,
 		formatting.prettier.with({
-			-- extra_args = { "--parser", "typescript" },
+			extra_args = { "--parser", "typescript" },
 			filetypes = {
 				"javascript",
 				"javascriptreact",

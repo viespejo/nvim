@@ -2,7 +2,7 @@
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_respect_buf_cwd = 1
 vim.g.nvim_tree_root_folder_modifier = ":t"
-vim.g.nvim_tree_quit_on_open = 1
+-- vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
@@ -67,6 +67,11 @@ nvim_tree.setup({
 		enable = false,
 		ignore = true,
 		timeout = 500,
+	},
+	actions = {
+		open_file = {
+			quit_on_open = true,
+		},
 	},
 	view = {
 		width = 30,

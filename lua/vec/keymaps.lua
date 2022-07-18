@@ -88,7 +88,7 @@ keymap("n", "<leader>lgg", ":lfirst<cr>zz", opts)
 keymap("n", "<leader>lG", ":llast<cr>zz", opts)
 
 -- selecting text you just pasted
-keymap("n", "gp", "'`[' . strpart(getregtype(), 0, 1) . '`]'", { noremap = true, expr = true })
+keymap("n", "gv", "'`[' . strpart(getregtype(), 0, 1) . '`]'", { noremap = true, expr = true })
 
 -- turn highlighted matches off but it does not change hlsearch option
 keymap("n", "<leader>/", ":nohlsearch<cr>", opts)

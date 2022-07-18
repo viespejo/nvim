@@ -84,6 +84,11 @@ return packer.startup(function(use)
 		-- event = 'InsertEnter *',
 	})
 
+	-- luasnip
+	use({
+		"L3MON4D3/LuaSnip",
+		config = [[require('vec.config.luasnip')]],
+	})
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig", -- enable LSP
@@ -207,6 +212,9 @@ return packer.startup(function(use)
 			require("vec.config.trouble")
 		end,
 	})
+
+	-- copilot
+	use("github/copilot.vim")
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

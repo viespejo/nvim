@@ -56,4 +56,4 @@ end
 
 require("vec.config.lsp.lsp-installer")
 
-require("vec.config.lsp.handlers").setup()
+handlers.setup()
