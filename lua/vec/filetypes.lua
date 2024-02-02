@@ -1,6 +1,6 @@
 local ok, filetype = pcall(require, "filetype")
 if not ok then
- return
+  return
 end
 -- In init.lua or filetype.nvim's config file
 filetype.setup({
@@ -8,6 +8,7 @@ filetype.setup({
     extensions = {
       pjs = "javascript",
       scm = "query",
+      html = "html",
     },
-  }
+  },
 })

@@ -1,0 +1,19 @@
+{
+  "functionExportComponent": {
+    "prefix": "fce",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return (",
+      "    <div>${1:first}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Creates React Functional Component"
+  },
+  "console.log": {
+    "prefix": "cl",
+    "body": "console.log(${0})"
+  }
+}

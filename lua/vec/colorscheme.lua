@@ -1,24 +1,33 @@
--- local colorscheme = "default"
-local colorscheme = "tokyonight"
-
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-
--- Change the "hint" color to the "orange" color, and make the "error" color bright red
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
-
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
+local tokyo_status_ok, tokyo = pcall(require, "tokyonight")
+if not tokyo_status_ok then
   return
 end
 
--- custom cursorline and colorcolumn
-local colors = require("tokyonight.colors").setup({})
 local util = require("tokyonight.util")
--- print(vim.inspect(colors))
-local bg_highlight = util.blend(colors.bg_highlight, '#1a1b26', 0.3)
-vim.cmd("highlight! CursorLine cterm=underline guibg=" .. bg_highlight)
-vim.cmd("highlight! CursorLineNr guifg=" .. colors.dark5 .. ",bold")
-vim.cmd("highlight! ColorColumn ctermbg=lightgrey guibg=" .. bg_highlight)
+
+tokyo.setup({
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  sidebars = { "qf", "help", "terminal", "packer" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  on_colors = function(colors)
+    colors.hint = colors.orange
+    colors.error = "#ff0000"
+  end,
+  on_highlights = function(hl, c)
+    local bg_highlight = util.blend(c.bg_highlight, "#1a1b26", 0.3)
+    hl.CursorLine = {
+      bg = bg_highlight,
+    }
+    hl.CursorLineNr = {
+      fg = c.dark5,
+      bold = true,
+    }
+    hl.ColorColumn = {
+      bg = bg_highlight,
+    }
+  end,
+})
+
+vim.cmd([[colorscheme tokyonight]])

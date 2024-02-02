@@ -1,47 +1,47 @@
 local ok, lualine = pcall(require, "lualine")
 if not ok then
-	return
+  return
 end
 
 local hide_in_width = function()
-	return vim.fn.winwidth(0) > 80
+  return vim.fn.winwidth(0) > 80
 end
 
 local diagnostics = {
-	"diagnostics",
-	-- sources = { "nvim_diagnostic" },
-	-- sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
-	colored = false,
-	update_in_insert = false,
-	cond = hide_in_width,
-	-- always_visible = true,
+  "diagnostics",
+  -- sources = { "nvim_diagnostic" },
+  -- sections = { "error", "warn" },
+  symbols = { error = " ", warn = " " },
+  colored = false,
+  update_in_insert = false,
+  cond = hide_in_width,
+  -- always_visible = true,
 }
 
 local diff = {
-	"diff",
-	-- colored = false,
-	-- symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width,
+  "diff",
+  -- colored = false,
+  -- symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+  cond = hide_in_width,
 }
 
 local mode = {
-	"mode",
-	fmt = function(str)
-		return "-- " .. str .. " --"
-	end,
+  "mode",
+  fmt = function(str)
+    return "-- " .. str .. " --"
+  end,
 }
 
 local filetype = {
-	"filetype",
-	icons_enabled = false,
-	icon = nil,
+  "filetype",
+  icons_enabled = false,
+  icon = nil,
 }
 
 local branch = {
-	"branch",
-	-- icons_enabled = true,
-	icon = "",
+  "branch",
+  -- icons_enabled = true,
+  icon = "",
 }
 
 -- local location = {
@@ -60,30 +60,30 @@ local branch = {
 -- end
 
 lualine.setup({
-	options = {
-		icons_enabled = true,
-		theme = "tokyonight",
-		component_separators = "",
-		section_separators = "",
-		disabled_filetypes = { "NvimTree", "Trouble" },
-		always_divide_middle = true,
-	},
-	sections = {
-		lualine_a = { mode },
-		lualine_b = { branch, diff, diagnostics },
-		lualine_c = { "filename" },
-		lualine_x = { "encoding", { "fileformat", icons_enabled = false }, filetype },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	tabline = {},
-	extensions = {},
+  options = {
+    icons_enabled = true,
+    theme = "tokyonight",
+    component_separators = "",
+    section_separators = "",
+    disabled_filetypes = { "NvimTree", "Trouble", "fzf" },
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = { mode },
+    lualine_b = { branch, diff, diagnostics },
+    lualine_c = { "filename" },
+    lualine_x = { "encoding", { "fileformat", icons_enabled = false }, filetype },
+    lualine_y = { "progress" },
+    lualine_z = { "location" },
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = {},
 })

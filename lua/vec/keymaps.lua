@@ -1,4 +1,3 @@
--- vim: set foldmethod=marker:
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
@@ -49,15 +48,19 @@ keymap("n", "<c-k>", "<c-w>k", opts)
 keymap("n", "<c-l>", "<c-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<c-Up>", ":resize -1<cr>", opts)
-keymap("n", "<c-Down>", ":resize +1<cr>", opts)
-keymap("n", "<c-Left>", ":vertical resize -1<cr>", opts)
-keymap("n", "<c-Right>", ":vertical resize +1<cr>", opts)
+keymap("n", "<m-Up>", ":resize -1<cr>", opts)
+keymap("n", "<m-Down>", ":resize +1<cr>", opts)
+keymap("n", "<m-Left>", ":vertical resize -1<cr>", opts)
+keymap("n", "<m-Right>", ":vertical resize +1<cr>", opts)
 
 -- Navigate buffers
 keymap("n", "<m-n>", ":bn<cr>", opts)
 keymap("n", "<m-p>", ":bp<cr>", opts)
 keymap("n", "<leader>3", ":b#<cr>", opts)
+
+-- Navigate tabs
+keymap("n", "<m-h>", ":tabprevious<cr>", opts)
+keymap("n", "<m-l>", ":tabnext<cr>", opts)
 
 -- Open netwr on directory of the current file
 keymap("n", "<leader>e.", ":e %:p:h<cr>", opts)
@@ -66,6 +69,7 @@ keymap("n", "<leader>ee", ":e.<cr>", opts)
 
 -- nvimtree
 keymap("n", "[Space]e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "[Space]E", ":NvimTreeOpen .<cr>", opts)
 
 -- helper to edit mode
 keymap("n", "<leader>ew", ":e %%", {})
@@ -126,6 +130,11 @@ keymap("x", "<m-k>", ":move '<-2<cr>gv-gv", opts)
 -- -- }}}
 
 -- Command -- {{{
+
+-- change annoying typo in command mode
+keymap("c", "W", "w", command_opts)
+keymap("c", "Wq", "wq", command_opts)
+keymap("c", "WQ", "wq", command_opts)
 
 -- change Working Directory to that of the current file
 keymap("c", "cd.", "lcd %:p:h", command_opts)

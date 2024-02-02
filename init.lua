@@ -3,6 +3,7 @@ local g = vim.g
 -- speed starttime
 
 require("impatient")
+-- vim.loader.enable()
 
 -- disable some built-in plugins we don't want
 local disabled_built_ins = {
@@ -15,7 +16,8 @@ local disabled_built_ins = {
 	"tar",
 	"zipPlugin",
 	"zip",
-	--  'netrwPlugin',
+	-- "netrw",
+	-- "netrwPlugin",
 }
 
 for k, _ in pairs(disabled_built_ins) do
@@ -26,5 +28,5 @@ require("vec.options")
 require("vec.keymaps")
 require("vec.plugins")
 require("vec.colorscheme")
-require("vec.filetypes")
+-- require("vec.filetypes")
 require("vec.autocommands")

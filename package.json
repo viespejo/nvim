@@ -1,0 +1,16 @@
+{
+  "name": "vs-code-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "javascript",
+          "typescript",
+          "javascriptreact",
+          "typescriptreact"
+        ],
+        "path": "./vs-code-snippets/javascript/javascript.json"
+      }
+    ]
+  }
+}

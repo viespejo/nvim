@@ -83,6 +83,7 @@ nnoremap <silent> <leader><tab>o :call fzf#vim#maps("o")<cr>
 nnoremap <silent> [Space]c :Commands<cr>
 nnoremap <silent> [Space]g :Rg <c-r><c-w><cr>
 nnoremap <silent> [Space]G :Rg<cr>
+nnoremap <silent> [Space]a <cmd>call aerial#fzf()<cr>
 
   " `:Files [PATH]`    | Files (runs  `$FZF_DEFAULT_COMMAND`  if defined)
   " `:GFiles [OPTS]`   | Git files ( `git ls-files` )
@@ -112,10 +113,10 @@ nnoremap <silent> [Space]G :Rg<cr>
 " custom statusline
 function! s:fzf_statusline()
   " Override statusline as you like
-  "highlight fzf1 guifg=#e12672
-  "highlight fzf2 guifg=#bcddbd
-  "highlight fzf3 guifg=#d9d9d9
-  "setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+  " highlight fzf1 ctermfg=161 ctermbg=251
+  " highlight fzf2 ctermfg=23 ctermbg=251
+  " highlight fzf3 ctermfg=237 ctermbg=251
+  " setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
   setlocal statusline=\ \ FZF
 endfunction
 
